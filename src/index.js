@@ -47,7 +47,7 @@ const createWindow = () => {
 
   // Open the DevTools.
   // mainWindow.webContents.openDevTools();
-  summaryWindow.webContents.openDevTools();
+  // summaryWindow.webContents.openDevTools();
 
   // Remove menu from Window
   mainWindow.removeMenu();
