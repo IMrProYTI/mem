@@ -10,11 +10,11 @@ const createWindows = () => {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
     width: 1200, // 800
-    height: 600,
+    height: 630, // 600
     minWidth: 1100 + 16,
-    minHeight: 450, // 366 + 79,
+    minHeight: 630 + 79, // 366 + 79,
     maxWidth: 1400,
-    maxHeight: 600,
+    maxHeight: 800,
     webPreferences: {
       preload: path.join(__dirname, 'js/preload.js'),
       nodeIntegration: true
@@ -22,12 +22,12 @@ const createWindows = () => {
   });
 
   const summaryWindow = new BrowserWindow({
-    width: 850,
-    height: 229,
+    width: 1100,
+    height: 289,
     minWidth: 1080,
-    maxWidth: 1200,
-    minHeight: 289,
-    maxHeight: 289,
+    minHeight: 310,
+    maxWidth: 1400,
+    maxHeight: 310,
     maximizable: false,
     parent: mainWindow,
     webPreferences: {
@@ -61,7 +61,7 @@ const createWindows = () => {
   // summaryWindow.webContents.openDevTools();
 
   // Remove menu from Window
-  mainWindow.removeMenu();
+  // mainWindow.removeMenu();
 };
 
 // This method will be called when Electron has finished
