@@ -14,11 +14,7 @@ function getCrypted(value) {
 	var alg1 = algorithm('crypto1');
 	var alg2 = algorithm('crypto2');
 
-	window.summaryWindow.show();
-
-	console.log(alg1);
-	console.log(alg2);
+	window.summaryWindow.show(alg1, alg2); // +
 };
 
-const sendButton = document.getElementById('send-button');
-sendButton.addEventListener('click', () => { getCrypted() });
+document.getElementById('send-button').addEventListener('click', () => { getCrypted() });

@@ -42,11 +42,11 @@ a:hover.link {
   margin: 1em 0;
 }
 
-.flex > p {
+.flex > * {
   margin: 0 2px;
 }
 
-.flex-column > p {
+.flex-column > * {
   margin: 4px 8px;
 }
 

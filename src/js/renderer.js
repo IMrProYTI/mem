@@ -48,5 +48,4 @@ function getCrypted(value) {
 };
 
 const input = document.getElementById('input');
-const sendButton = document.getElementById('send-button');
-sendButton.addEventListener('click', () => {getCrypted(input.value)});
+document.getElementById('send-button').addEventListener('click', () => { getCrypted(input.value) });

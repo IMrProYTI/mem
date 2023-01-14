@@ -1,12 +1,12 @@
 * {
-	/* user-select: none; */
+	user-select: none;
 }
 
 html, body {
 	margin: 0;
 
   color: #FFF;
-  background-color: #333;
+  background: linear-gradient(20deg, #282828 30%, #383838 100%);
 }
 
 body {
@@ -17,10 +17,17 @@ body {
 }
 
 main {
-	margin: 16px;
+	width: 1010px;
+	height: calc(100% - 128px);
+
+	margin: 8px auto;
+	padding: 16px;
+
+	border-radius: 8px;
+	background-color: #0002;
 }
 
 a {
 	text-decoration: none;
-	color: rgba(255, 255, 17, 252);
+	color: #ff8c00;
 }

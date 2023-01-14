@@ -20,16 +20,12 @@ contextBridge.exposeInMainWorld('myCrypto', {
 	'sha512': (value) => useHash('sha512', value)
 });
 
-// Pass
-function showSummary() {
-	ipcRenderer.send('show-summary');
-};
-
-function hideSummary() {
-	ipcRenderer.send('hide-summary');
-};
+let algorithms;
 
 contextBridge.exposeInMainWorld('summaryWindow', {
-	'show': () => showSummary(),
-	'hide': () => hideSummary()
+	'show': (algorithm1, algorithm2) => ipcRenderer.invoke('show-summary', { algorithm1, algorithm2 }),
+	'hide': () => ipcRenderer.invoke('hide-summary'),
+	'get': () => {
+		return ipcRenderer.invoke('get-summary');
+	}
 });
