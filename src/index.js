@@ -6,13 +6,15 @@ if (require('electron-squirrel-startup')) {
   app.quit();
 };
 
-const createWindow = () => {
+const createWindows = () => {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
     width: 1200, // 800
     height: 600,
     minWidth: 1100 + 16,
-    minHeight: 400 + 79,
+    minHeight: 450, // 366 + 79,
+    maxWidth: 1400,
+    maxHeight: 600,
     webPreferences: {
       preload: path.join(__dirname, 'js/preload.js'),
       nodeIntegration: true
@@ -20,9 +22,12 @@ const createWindow = () => {
   });
 
   const summaryWindow = new BrowserWindow({
-    minWidth: 600,
-    maxWidth: 900,
-    minHeight: 300,
+    width: 850,
+    height: 229,
+    minWidth: 1080,
+    maxWidth: 1200,
+    minHeight: 289,
+    maxHeight: 289,
     maximizable: false,
     parent: mainWindow,
     webPreferences: {
@@ -33,13 +38,19 @@ const createWindow = () => {
     show: false
   });
 
-  ipcMain.on('show-summary', () => {
+  let algorithms = { 'algorithm1': 'md4', 'algorithm2': 'md4'};
+  
+  ipcMain.handle('get-summary', () => {
+    return algorithms;
+  });
+
+  ipcMain.handle('show-summary', (e, algs) => {
+    algorithms = algs;
+    summaryWindow.reload();
     summaryWindow.show();
   });
 
-  ipcMain.on('hide-summary', () => {
-    summaryWindow.hide();
-  });
+  ipcMain.handle('hide-summary', () => summaryWindow.hide());
 
   // and load the index.html of the app.
   mainWindow.loadFile(path.join(__dirname, 'pages', 'index.html'));
@@ -47,7 +58,7 @@ const createWindow = () => {
 
   // Open the DevTools.
   // mainWindow.webContents.openDevTools();
-  summaryWindow.webContents.openDevTools();
+  // summaryWindow.webContents.openDevTools();
 
   // Remove menu from Window
   mainWindow.removeMenu();
@@ -56,7 +67,7 @@ const createWindow = () => {
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
-app.on('ready', createWindow);
+app.on('ready', createWindows);
 
 // Quit when all windows are closed, except on macOS. There, it's common
 // for applications and their menu bar to stay active until the user quits
@@ -71,7 +82,7 @@ app.on('activate', () => {
   // On OS X it's common to re-create a window in the app when the
   // dock icon is clicked and there are no other windows open.
   if (BrowserWindow.getAllWindows().length === 0) {
-    createWindow();
+    createWindows();
   };
 });
 
