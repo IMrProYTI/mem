@@ -12,7 +12,7 @@ const createWindows = () => {
     width: 1200, // 800
     height: 630, // 600
     minWidth: 1100 + 16,
-    minHeight: 630 + 79, // 366 + 79,
+    minHeight: 630 + 79,
     maxWidth: 1400,
     maxHeight: 800,
     webPreferences: {
@@ -61,7 +61,7 @@ const createWindows = () => {
   // summaryWindow.webContents.openDevTools();
 
   // Remove menu from Window
-  // mainWindow.removeMenu();
+  mainWindow.removeMenu();
 };
 
 // This method will be called when Electron has finished
