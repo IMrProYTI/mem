@@ -52,10 +52,6 @@
 	</main>
 </body>
 <script>
-function openInExternalBrowser(link) {
-	window.browser.open(link);
-};
-
 const linksMap = [
 	"https://github.com/imrproyti",
 	"https://vk.com/mrproyt",
@@ -75,7 +71,7 @@ const links = document.getElementsByClassName('link');
 for (let i = 0; i < links.length; i++) {
 	links[i].addEventListener('click', () => {
 		if (linksMap[i] != "")
-			openInExternalBrowser(linksMap[i]);
+			window.browser.open(linksMap[i]);
 	});
 };
 </script>
