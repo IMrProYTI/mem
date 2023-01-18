@@ -25,7 +25,9 @@ let algorithms;
 contextBridge.exposeInMainWorld('summaryWindow', {
 	'show': (algorithm1, algorithm2) => ipcRenderer.invoke('show-summary', { algorithm1, algorithm2 }),
 	'hide': () => ipcRenderer.invoke('hide-summary'),
-	'get': () => {
-		return ipcRenderer.invoke('get-summary');
-	}
+	'get': () => ipcRenderer.invoke('get-summary')
+});
+
+contextBridge.exposeInMainWorld('browser', {
+	'open': (link) => ipcRenderer.invoke('open-browser', link)
 });

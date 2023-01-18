@@ -20,35 +20,63 @@
 		<div class="flex-column">
 			<div class="flex">
 				<p>Александр Белёв:</p>
-				<p><a class="link" href="https://github.com/imrproyti" target="_blank">Github</a>,</p>
-				<p><a class="link" href="https://vk.com/mrproyt" target="_blank">VK</a>,</p>
-				<p><a class="link" href="https://discordapp.com/channels/@me/326675042979282944/" target="_blank">Discord</a>: <code>IMrProYTI#3980</code></p>
+				<p><a class="link" target="_blank">Github</a>,</p>
+				<p><a class="link" target="_blank">VK</a>,</p>
+				<p><a class="link" target="_blank">Discord</a>: <code>IMrProYTI#3980</code></p>
 			</div>
 			<div class="flex">
 				<p>Иван Сахаров:</p>
-				<p><a class="link" href="https://vk.com/notfprime" target="_blank">VK</a></p>
+				<p><a class="link" target="_blank">VK</a></p>
 			</div>
 		</div>
 		
 		<h3>Программа:</h3>
 		<div class="flex-column">
-			<p>Исходный код на <a class="link" href="https://github.com/imrproyti/programm" target="_blank">Github</a></p>
+			<p>Исходный код на <a class="link" target="_blank">Github</a></p>
 		</div>
 
 		<h3>Приложения к программе:</h3>
 		<div class="flex-column">
-			<p>• <a class="link" href="https://goo.su/RObz" target="_blank">Презентация</a></p>
-			<p>• <a class="link" href="https://goo.su/ztTDd50" target="_blank">Аннотация</a></p>
+			<p>• <a class="link" target="_blank">Презентация</a></p>
+			<p>• <a class="link" target="_blank">Аннотация</a></p>
 		</div>
 
 		<h3>Используемые технологии:</h3>
 		<div class="flex-column">
-			<p>• <a class="link" href="https://www.chromium.org/Home/" target="_blank">chromium</a></p>
-			<p>• <a class="link" href="https://www.electronjs.org/ru/" target="_blank">electron</a></p>
-			<p>• <a class="link" href="https://www.electronforge.io/" target="_blank">electron-forge</a></p>
-			<p>• <a class="link" href="https://nodejs.org/ru/" target="_blank">node</a></p>
-			<p>• <a class="link" href="https://www.npmjs.com/" target="_blank">npm</a></p>
+			<p>• <a class="link" target="_blank">chromium</a></p>
+			<p>• <a class="link" target="_blank">electron</a></p>
+			<p>• <a class="link" target="_blank">electron-forge</a></p>
+			<p>• <a class="link" target="_blank">node</a></p>
+			<p>• <a class="link" target="_blank">npm</a></p>
 		</div>
 	</main>
 </body>
+<script>
+function openInExternalBrowser(link) {
+	window.browser.open(link);
+};
+
+const linksMap = [
+	"https://github.com/imrproyti",
+	"https://vk.com/mrproyt",
+	"https://discordapp.com/channels/@me/326675042979282944/",
+	"https://vk.com/notfprime",
+	"https://github.com/imrproyti/programm",
+	"https://goo.su/RObz",
+	"https://goo.su/ztTDd50",
+	"https://www.chromium.org/Home/",
+	"https://www.electronjs.org/ru/",
+	"https://www.electronforge.io/",
+	"https://nodejs.org/ru/",
+	"https://www.npmjs.com/"
+];
+
+const links = document.getElementsByClassName('link');
+for (let i = 0; i < links.length; i++) {
+	links[i].addEventListener('click', () => {
+		if (linksMap[i] != "")
+			openInExternalBrowser(linksMap[i]);
+	});
+};
+</script>
 </html>
