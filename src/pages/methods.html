@@ -22,11 +22,11 @@
 			<p>Хэширование — процесс преобразования входных данных в выходную битовую строку с использованием Хэш-функции.</p>
 			<p>Существуют следующие Хэш-функции:</p>
 			<div class="flex" style="padding-left: 16px;">
-				<p>• <a class="link" href="https://ru.wikipedia.org/wiki/MD4" target="_blank">MD4</a></p>
-				<p>• <a class="link" href="https://ru.wikipedia.org/wiki/MD5" target="_blank">MD5</a></p>
-				<p>• <a class="link" href="https://ru.wikipedia.org/wiki/SHA-1" target="_blank">SHA-1</a></p>
+				<p>• <a class="link" target="_blank">MD4</a></p>
+				<p>• <a class="link" target="_blank">MD5</a></p>
+				<p>• <a class="link" target="_blank">SHA-1</a></p>
 			</div>
-			<p style="padding-left: 16px;">• <a class="link" href="https://ru.wikipedia.org/wiki/SHA-2" target="_blank">Семейство SHA-2</a> — включающее следующие алгоритмы: <code>SHA224</code>, <code>SHA256</code>, <code>SHA384</code> и <code>SHA512</code></p>
+			<p style="padding-left: 16px;">• <a class="link" target="_blank">Семейство SHA-2</a> — включающее следующие алгоритмы: <code>SHA224</code>, <code>SHA256</code>, <code>SHA384</code> и <code>SHA512</code></p>
 			<p>*Существует ещё множество Хэш-функций, и всех их перечислить здесь было бы невозможно.</p>
 		</div>
 
@@ -67,4 +67,19 @@
 	</main>
 </body>
 <script src="../js/renderer.js"></script>
+<script>
+const linksMap = [
+	"https://ru.wikipedia.org/wiki/MD4",
+	"https://ru.wikipedia.org/wiki/MD5",
+	"https://ru.wikipedia.org/wiki/SHA-1",
+	"https://ru.wikipedia.org/wiki/SHA-2"
+];
+
+const links = document.getElementsByClassName('link');
+for (let i = 0; i < links.length; i++) {
+	links[i].addEventListener('click', () => {
+		window.browser.open(linksMap[i]);
+	});
+};
+</script>
 </html>
