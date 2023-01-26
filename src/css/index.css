@@ -35,6 +35,8 @@ input {
 
 a:hover.link {
 	text-decoration: underline;
+
+  cursor: pointer;
 }
 
 #input {
