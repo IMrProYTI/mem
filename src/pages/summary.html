@@ -5,14 +5,14 @@
 	<title>Сводка</title>
   <link rel="stylesheet" href="../css/index.css" />
   <link rel="stylesheet" href="../css/reset.css" />
-	<link rel="stylesheet" href="../css/frameless.css" />
 </head>
 <body>
 	<header>
+		<p></p>
 		<nav>
 			<h3 style="color: black; margin: auto; align-self: center;">Сводка</h3>
-			<button id="exit-button"><div id="minimize"></div></button>
 		</nav>
+		<button id="exit-button"><div id="minimize"></div></button>
 	</header>
 	<main>
 		<table>
@@ -63,6 +63,15 @@
 	</main>
 </body>
 <style>
+	header {
+		justify-content: space-between;
+	}
+
+	main {
+		height: fit-content;
+		min-height: unset;
+	}
+
 	table {
 		width: 100%;
 		border: 2px solid aquamarine;
@@ -79,6 +88,8 @@
 		border: none;
 
 		background-color: #0000;
+
+		-webkit-app-region: no-drag;
 	}
 
 	button#exit-button:hover {

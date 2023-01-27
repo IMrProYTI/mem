@@ -10,25 +10,27 @@ if (require('electron-squirrel-startup')) {
 const createWindows = () => {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
-    width: 1200, // 800
-    height: 630, // 600
-    minWidth: 1100 + 16,
-    minHeight: 630 + 79,
-    maxWidth: 1400,
-    maxHeight: 800,
+    width: 1420, // 800
+    height: 620, // 600
+    minWidth: 1420,
+    minHeight: 620,
     webPreferences: {
       preload: path.join(__dirname, 'js/preload.js'),
       nodeIntegration: true
-    }
+    },
+    titleBarOverlay: {
+      color: '#7fffd4',
+      symbolColor: '#000000',
+      height: 36
+    },
+    titleBarStyle: 'hidden',
   });
 
   const summaryWindow = new BrowserWindow({
-    width: 1100,
-    height: 289,
-    minWidth: 1080,
-    minHeight: 310,
-    maxWidth: 1400,
-    maxHeight: 310,
+    width: 1130,
+    height: 265,
+    minWidth: 1130,
+    minHeight: 265,
     maximizable: false,
     parent: mainWindow,
     webPreferences: {
@@ -57,12 +59,15 @@ const createWindows = () => {
   mainWindow.loadFile(path.join(__dirname, 'pages', 'index.html'));
   summaryWindow.loadFile(path.join(__dirname, 'pages', 'summary.html'));
 
-  // Open the DevTools.
-  // mainWindow.webContents.openDevTools();
-  // summaryWindow.webContents.openDevTools();
-
-  // Remove menu from Window
-  mainWindow.removeMenu();
+  if (process.env.IS_DEV == 'true') {
+    // Open the DevTools.
+    mainWindow.webContents.openDevTools();
+    summaryWindow.webContents.openDevTools();
+  }
+  else {
+    // Remove menu from Window
+    mainWindow.removeMenu();
+  };
 };
 
 // This method will be called when Electron has finished
@@ -91,4 +96,8 @@ app.on('activate', () => {
 // code. You can also put them in separate files and import them here.
 ipcMain.handle('open-browser', (e, link) => {
   shell.openExternal(link);
+});
+
+ipcMain.on('get-title', (e) => {
+  e.returnValue = e.sender.getTitle();
 });

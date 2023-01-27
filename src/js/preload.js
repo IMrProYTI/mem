@@ -29,5 +29,6 @@ contextBridge.exposeInMainWorld('summaryWindow', {
 });
 
 contextBridge.exposeInMainWorld('browser', {
+	'getTitle': () => { return ipcRenderer.sendSync('get-title') },
 	'open': (link) => ipcRenderer.invoke('open-browser', link)
 });

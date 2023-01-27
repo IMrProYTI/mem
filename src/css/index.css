@@ -5,28 +5,59 @@ body {
 h2 { margin: 0.5em 0; }
 h3 { margin: 0.75em 0; }
 
-header > nav {
-  height: 37px;
+header {
+  width: -webkit-fill-available;
+  height: 36px;
 
   display: flex;
+  justify-content: space-evenly;
+
   background-color: aquamarine;
+  
+  -webkit-app-region: drag;
+}
+
+header > div {
+  width: 350px;
+  height: auto;
+
+  margin: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+header > div > * {
+  color: black;
+}
+
+header > nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 header > nav > a {
-  padding: 8px 16px;
+  width: auto;
+  height: -webkit-fill-available;
+
+  display: flex;
+  align-items: center;
+
   color: black;
+
+  padding: 0 16px;
+
+	-webkit-app-region: no-drag;
 }
 
 header > nav > a:hover {
   background-color: #0002;
-
-  padding: 8px 16px;
 }
 
 header > nav > a:active {
   background-color: #0005;
-
-  padding: 8px 16px;
 }
 
 input {
@@ -40,7 +71,7 @@ a:hover.link {
 }
 
 #input {
-  width: calc(169px * 1.5);
+  width: calc(169px * 2);
 }
 
 .flex {

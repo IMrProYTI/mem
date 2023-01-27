@@ -1,7 +1,0 @@
-header > nav {
-	-webkit-app-region: drag;
-}
-
-header > nav > * {
-	-webkit-app-region: no-drag;
-}

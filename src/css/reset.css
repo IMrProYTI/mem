@@ -17,8 +17,11 @@ body {
 }
 
 main {
-	width: 1010px;
-	height: calc(100% - 128px);
+	width: 70%;
+	height: 75%;
+
+	min-width: 1080px;
+	min-height: 520px;
 
 	margin: 8px auto;
 	padding: 16px;
